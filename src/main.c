@@ -1,5 +1,8 @@
 #include<stdio.h>
 #include<unistd.h>
+
+#include"medisession.h"
+
 /**
  * cMindful
  * A small cli tool for a developer to set some time off.
@@ -19,8 +22,12 @@ int main(int argc, char **argv){
     fprintf(stderr, "Error minutes is not an integer!\n");
   }
 
-  printf("Starting to meditate for %d minutes!\a", nMinutes);
+  MediSession ms = createMediSession(nMinutes);
+  
+  printf("Starting to meditate for %d minutes!\n", nMinutes);
   sleep(nMinutes);
-  printf("Meditation finished\n");
+
+  printMediSession(&ms);
+  printf("Meditation finished.\n\a");
   return(0);
 };

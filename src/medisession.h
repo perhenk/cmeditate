@@ -7,3 +7,5 @@ typedef struct MediSession {
 
 
 MediSession createMediSession(int minutes);
+
+void printMediSession(MediSession *ms);
