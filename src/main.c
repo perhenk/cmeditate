@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<unistd.h>
-
 #include"medisession.h"
 
 const char *DATA_PATH = "cmeditate_data.csv";
@@ -24,6 +23,8 @@ int main(int argc, char **argv){
     fprintf(stderr, "Error minutes is not an integer!\n");
   }
 
+
+  
   MediSession ms = createMediSession(nMinutes);
   
   printf("Starting to meditate for %d minutes!\n", nMinutes);
