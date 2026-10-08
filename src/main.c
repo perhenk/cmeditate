@@ -3,6 +3,8 @@
 
 #include"medisession.h"
 
+const char *DATA_PATH = "cmeditate_data.csv";
+
 /**
  * cMindful
  * A small cli tool for a developer to set some time off.
@@ -29,5 +31,13 @@ int main(int argc, char **argv){
 
   printMediSession(&ms);
   printf("Meditation finished.\n\a");
+
+  FILE *filePointer = fopen(DATA_PATH, "a");
+
+  if(filePointer == NULL){
+    printf("Could not open data store %s", DATA_PATH);
+  }
+  fprintf(filePointer, "2020-01-01;%d;%s\n", nMinutes, "C-meditate cli");
+  fclose(filePointer);
   return(0);
 };
