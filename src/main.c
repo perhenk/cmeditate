@@ -22,13 +22,11 @@ int main(int argc, char **argv){
   if (sscanf (argv[1], "%i", &nMinutes) != 1) {
     fprintf(stderr, "Error minutes is not an integer!\n");
   }
-
-
   
   MediSession ms = createMediSession(nMinutes);
   
   printf("Starting to meditate for %d minutes!\n", nMinutes);
-  sleep(nMinutes);
+  sleep(nMinutes*60);
 
   printMediSession(&ms);
   printf("Meditation finished.\n\a");
@@ -38,7 +36,7 @@ int main(int argc, char **argv){
   if(filePointer == NULL){
     printf("Could not open data store %s", DATA_PATH);
   }
-  fprintf(filePointer, "2020-01-01;%d;%s\n", nMinutes, "C-meditate cli");
+  fprintf(filePointer, "%s;%d;%s\n", ms.date, nMinutes, "C-meditate cli");
   fclose(filePointer);
   return(0);
 };

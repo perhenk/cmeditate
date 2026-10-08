@@ -13,14 +13,10 @@ MediSession createMediSession(int minutes) {
     printf("Error in lokal tid!");
   }
 
-  char dato[11];  // "YYYY-MM-DD" + '\0'
-  
-  if (strftime(dato, sizeof dato, "%Y-%m-%d", lokal_tid) == 0) {
+  MediSession ms = {.id = 1, .minutes = minutes};  
+  if (strftime(ms.date, sizeof ms.date, "%Y-%m-%d", lokal_tid) == 0) {
     printf("Can not parse date format!");
   }
-
-  
-  MediSession ms = {.id = 1, .date = *dato, .minutes = minutes};
   return ms;
 }  
 
