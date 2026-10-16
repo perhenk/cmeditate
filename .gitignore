@@ -6,5 +6,5 @@ CMakeCache.txt
 Makefile
 *.cmake
 src/Makefile
-cmindful
+cmeditate
 *.csv

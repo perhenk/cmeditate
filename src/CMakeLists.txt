@@ -1,1 +1,1 @@
-add_executable(cmindful main.c medisession.c medisession.h)
+add_executable(cmeditate main.c medisession.c medisession.h)
